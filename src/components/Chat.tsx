@@ -55,11 +55,20 @@ export default function Chat() {
         parts: [{ text: m.content }]
       })).concat([{ role: 'user', parts: [{ text }] }]);
 
-      const response = await fetch('/api/chat', {
+      // Use direct Netlify function URL in production to avoid rewrite routing issues
+      const endpoint = import.meta.env.PROD ? '/.netlify/functions/chat' : '/api/chat';
+
+      const response = await fetch(endpoint, {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify({ messages: apiMessages })
       });
+
+      if (!response.ok) {
+        const errorText = await response.text();
+        console.error("Backend Error:", response.status, errorText);
+        throw new Error(`Server returned HTTP ${response.status}`);
+      }
 
       const data = await response.json();
       
@@ -67,16 +76,16 @@ export default function Chat() {
       setMessages(prev => [...prev, {
         id: `msg-${Date.now()}-model`,
         role: 'assistant',
-        content: data.text || 'Error: No response from model.',
+        content: data.text || (data.error ? `Server Error: ${data.error}` : 'Error: No response from model.'),
         time: new Date().toLocaleTimeString([], {hour: '2-digit', minute:'2-digit'})
       }]);
-    } catch (err) {
-      console.error(err);
+    } catch (err: any) {
+      console.error("Chat Error:", err);
       setIsTyping(false);
       setMessages(prev => [...prev, {
         id: `msg-${Date.now()}-error`,
         role: 'assistant',
-        content: 'System Error: Failed to reach OpsGPT backend.',
+        content: `System Error: Failed to reach OpsGPT backend. (${err.message || 'Check console'}) Please make sure your GEMINI_API_KEY is added in Netlify Environment Variables.`,
         time: new Date().toLocaleTimeString([], {hour: '2-digit', minute:'2-digit'})
       }]);
     }

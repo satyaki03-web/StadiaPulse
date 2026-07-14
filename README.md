@@ -23,6 +23,18 @@ Our mission is to ensure frictionless crowd flow, shatter language barriers in r
 - **AI Integration:** `@google/genai` SDK via Gemini 2.5 Flash.
 - **Typography:** Inter (Sans-serif) & JetBrains Mono (Monospace).
 
+## 🚀 Deployment (Netlify)
+
+This project is fully configured for a zero-config deployment to **Netlify**, including the backend AI operations via Netlify Serverless Functions.
+
+1. **Push to GitHub**: Commit and push your code to a new GitHub repository.
+2. **Import to Netlify**: Log in to [Netlify](https://www.netlify.com/), click **Add new site**, and select **Import an existing project**.
+3. **Connect Repository**: Choose your repository. Netlify will automatically detect the settings from the `netlify.toml` file.
+4. **Environment Variables**: Before deploying, go to **Site configuration -> Environment variables** and add your `GEMINI_API_KEY`.
+5. **Deploy**: Click **Deploy Site**.
+
+Netlify will automatically host the React application and deploy the OpsGPT backend as a serverless function, securely hiding your API key.
+
 ## 🛠️ Getting Started
 
 ### Prerequisites
