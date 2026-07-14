@@ -12,7 +12,7 @@ export const handler = async (event: any) => {
     const systemInstruction = "You are OpsGPT, a highly advanced generative AI assistant for the 2026 FIFA World Cup stadium operations (StadiaPulse GenAI). You are integrated into a secure command center dashboard. Provide concise, highly analytical, and actionable responses. Use markdown to cleanly format your output with bullet points and bold text for readability. Keep it professional, data-driven, and authoritative. Respond as the AI.";
     
     const response = await ai.models.generateContent({
-      model: "gemini-2.5-flash",
+      model: "gemini-3.0-flash",
       contents: messages,
       config: {
          systemInstruction,
@@ -24,12 +24,12 @@ export const handler = async (event: any) => {
       headers: { 'Content-Type': 'application/json' },
       body: JSON.stringify({ text: response.text })
     };
-  } catch (error) {
+  } catch (error: any) {
     console.error(error);
     return {
       statusCode: 500,
       headers: { 'Content-Type': 'application/json' },
-      body: JSON.stringify({ error: "Failed to generate response." })
+      body: JSON.stringify({ error: error.message || "Failed to generate response." })
     };
   }
 };

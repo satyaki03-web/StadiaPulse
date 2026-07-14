@@ -20,7 +20,7 @@ async function startServer() {
       const systemInstruction = "You are OpsGPT, a highly advanced generative AI assistant for the 2026 FIFA World Cup stadium operations (StadiaPulse GenAI). You are integrated into a secure command center dashboard. Provide concise, highly analytical, and actionable responses. Use markdown to cleanly format your output with bullet points and bold text for readability. Keep it professional, data-driven, and authoritative. Respond as the AI.";
       
       const response = await ai.models.generateContent({
-        model: "gemini-2.5-flash",
+        model: "gemini-3.0-flash",
         contents: messages,
         config: {
            systemInstruction,
@@ -28,9 +28,9 @@ async function startServer() {
       });
       
       res.json({ text: response.text });
-    } catch (error) {
+    } catch (error: any) {
       console.error(error);
-      res.status(500).json({ error: "Failed to generate response." });
+      res.status(500).json({ error: error.message || "Failed to generate response." });
     }
   });
 
