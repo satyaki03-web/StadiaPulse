@@ -11,7 +11,7 @@ Our mission is to ensure frictionless crowd flow, shatter language barriers in r
 ## ✨ Core Modules & Features
 
 - **Live Crowd Radar (Virtual Stadium Matrix):** Real-time 3D telemetry of stadium sectors, highlighting crowd density and autonomous alerts for congestion with actionable rerouting suggestions.
-- **OpsGPT Decision Support:** A highly advanced generative AI assistant integrated into a secure command center dashboard. Powered by the Gemini 2.5 Flash model, OpsGPT provides concise, analytical, and actionable responses for operational protocols.
+- **OpsGPT Decision Support:** A highly advanced generative AI assistant integrated into a secure command center dashboard. Powered by the Gemini 3.0 Flash model, OpsGPT provides concise, analytical, and actionable responses for operational protocols.
 - **Multilingual Comm (Global PA Broadcast):** Seamless auto-translation and dictation tools for broadcasting localized announcements across dynamically detected language zones.
 - **Transit & Grid:** Real-time optimization of electric shuttle fleets, grid battery reserves, and station congestion, predictive transit load charting.
 - **Dynamic Telemetry Header:** Live-updating dashboard telemetry including active fans (with multi-venue support), network health, and carbon footprint reduction.
@@ -20,7 +20,7 @@ Our mission is to ensure frictionless crowd flow, shatter language barriers in r
 
 - **Frontend:** React 19, Vite, Tailwind CSS, Framer Motion (fluid animations), Recharts (data telemetry), Lucide React (icons).
 - **Backend:** Node.js, Express, ES Module support.
-- **AI Integration:** `@google/genai` SDK via Gemini 2.5 Flash.
+- **AI Integration:** `@google/genai` SDK via Gemini 3.0 Flash.
 - **Typography:** Inter (Sans-serif) & JetBrains Mono (Monospace).
 
 ## 🚀 Deployment (Netlify)

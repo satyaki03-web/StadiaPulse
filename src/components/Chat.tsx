@@ -65,9 +65,16 @@ export default function Chat() {
       });
 
       if (!response.ok) {
-        const errorText = await response.text();
-        console.error("Backend Error:", response.status, errorText);
-        throw new Error(`Server returned HTTP ${response.status}`);
+        let errorMsg = `Server returned HTTP ${response.status}`;
+        try {
+          const errorData = await response.json();
+          if (errorData.error) errorMsg = errorData.error;
+        } catch (e) {
+          const errorText = await response.text();
+          if (errorText) errorMsg = errorText;
+        }
+        console.error("Backend Error:", response.status, errorMsg);
+        throw new Error(errorMsg);
       }
 
       const data = await response.json();

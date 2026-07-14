@@ -61,20 +61,26 @@ export default function Header() {
 
       {/* Venue Dropdown */}
       <div className="relative hidden md:block" ref={dropdownRef}>
-        <div 
+        <button 
+          aria-haspopup="listbox"
+          aria-expanded={isDropdownOpen}
           onClick={() => setIsDropdownOpen(!isDropdownOpen)}
           className="flex items-center gap-2 bg-gray-900 border border-gray-800 rounded-md px-3 py-1.5 cursor-pointer hover:border-gray-700 transition-colors"
         >
           <span className="text-sm font-medium text-white">{venue}</span>
-          <ChevronDown className={`w-4 h-4 text-gray-400 transition-transform ${isDropdownOpen ? 'rotate-180' : ''}`} />
-        </div>
+          <ChevronDown className={`w-4 h-4 text-gray-400 transition-transform ${isDropdownOpen ? 'rotate-180' : ''}`} aria-hidden="true" />
+        </button>
         
         {isDropdownOpen && (
-          <div className="absolute top-full left-0 mt-1 w-48 bg-gray-900 border border-gray-800 rounded-md shadow-xl overflow-hidden z-50">
+          <div role="listbox" className="absolute top-full left-0 mt-1 w-48 bg-gray-900 border border-gray-800 rounded-md shadow-xl overflow-hidden z-50">
             {(Object.keys(venuesData) as VenueName[]).map(v => (
               <div 
                 key={v}
+                role="option"
+                aria-selected={v === venue}
+                tabIndex={0}
                 onClick={() => { setVenue(v); setIsDropdownOpen(false); }}
+                onKeyDown={(e) => { if(e.key === 'Enter') { setVenue(v); setIsDropdownOpen(false); } }}
                 className={`px-3 py-2 text-sm cursor-pointer hover:bg-gray-800 transition-colors ${v === venue ? 'text-emerald-400 font-medium' : 'text-gray-300'}`}
               >
                 {v}
@@ -85,7 +91,7 @@ export default function Header() {
       </div>
 
       {/* Metrics */}
-      <div className="flex items-center gap-4 md:gap-8 overflow-x-auto no-scrollbar mask-edges">
+      <div aria-label="Live Metrics" className="flex items-center gap-4 md:gap-8 overflow-x-auto no-scrollbar mask-edges" role="region">
         <div className="flex items-center gap-3">
           <div className="w-8 h-8 rounded-full bg-blue-500/10 flex items-center justify-center shrink-0">
             <Users className="w-4 h-4 text-blue-400" />

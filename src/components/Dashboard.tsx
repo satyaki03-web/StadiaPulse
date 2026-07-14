@@ -35,7 +35,11 @@ export default function Dashboard() {
             
             {/* Widget 1: Crowd Control Map */}
             <div 
+              role="button"
+              tabIndex={0}
+              onKeyDown={(e) => { if (e.key === 'Enter') setIsStadiumOpen(true) }}
               onClick={() => setIsStadiumOpen(true)}
+              aria-label="Open Virtual Stadium Crowd Map"
               className="bg-[#0a0a0a] border border-gray-800 hover:border-emerald-500/50 hover:shadow-[0_0_30px_rgba(16,185,129,0.15)] rounded-xl flex flex-col overflow-hidden relative group cursor-pointer transition-all duration-300"
             >
               <div className="p-4 border-b border-gray-800 bg-[#0c0c0c] flex items-center justify-between z-10 shrink-0">
