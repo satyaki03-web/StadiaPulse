@@ -180,14 +180,16 @@ export default function Chat() {
             onChange={(e) => setInput(e.target.value)}
             onKeyDown={(e) => e.key === 'Enter' && handleSend(input)}
             placeholder="Query telemetry, generate protocols..."
+            aria-label="Chat input field"
             className="w-full bg-black border border-gray-800 rounded-lg pl-4 pr-12 py-3 text-sm text-white placeholder:text-gray-600 focus:outline-none focus:border-emerald-500/50 focus:ring-1 focus:ring-emerald-500/50 transition-all font-sans"
           />
           <button
             onClick={() => handleSend(input)}
             disabled={!input.trim()}
+            aria-label="Send message"
             className="absolute right-2 top-1/2 -translate-y-1/2 p-1.5 rounded-md text-gray-400 hover:text-emerald-400 hover:bg-emerald-500/10 disabled:opacity-50 disabled:hover:bg-transparent transition-colors"
           >
-            <Send className="w-4 h-4" />
+            <Send className="w-4 h-4" aria-hidden="true" />
           </button>
         </div>
       </div>
