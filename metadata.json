@@ -1,0 +1,6 @@
+{
+  "name": "StadiaPulse GenAI",
+  "description": "Enterprise Generative AI Ecosystem Proposal for the 2026 FIFA World Cup.",
+  "requestFramePermissions": [],
+  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+}

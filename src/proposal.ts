@@ -1,0 +1,27 @@
+export const proposalMarkdown = `
+### 1. Executive Vision & Ecosystem Overview
+StadiaPulse GenAI is the cognitive nervous system for the 2026 FIFA World Cup, designed to unify 16 host cities across three nations under a single, intelligent operational umbrella. As we prepare for 48 teams, 104 matches, and millions of global attendees, traditional deterministic systems are insufficient. StadiaPulse GenAI leverages a multi-tiered generative architecture to transform passive infrastructure into an active, predictive ecosystem. Our mission is to ensure frictionless crowd flow, shatter language barriers in real-time, empower staff with predictive operational intelligence, and enforce rigorous sustainability metrics. By synthesizing massive multimodal data streams—from IoT sensors to CCTV feeds—StadiaPulse delivers hyper-personalized, context-aware orchestration that scales dynamically to meet the unprecedented demands of the world's largest sporting event.
+
+### 2. Solution Architecture & Tech Stack
+The StadiaPulse architecture operates on a federated, tri-tier hybrid cloud model to balance computational power with low-latency edge requirements.
+*   **LLM Tiering:** We deploy heavyweight, cloud-hosted multimodal models for complex, cross-venue predictive analytics, anomaly detection, and deep semantic processing. At the edge, lightweight quantized models run directly on staff devices and local venue servers to ensure zero-latency inference for critical operations even during network saturation.
+*   **Retrieval-Augmented Generation (RAG):** The ecosystem utilizes a continuously updated vector database indexing venue blueprints, dynamic match schedules, local compliance laws, and emergency protocols. When a query is made, the RAG pipeline grounds the LLM responses in this real-time deterministic data, eliminating hallucinations and ensuring absolute operational accuracy.
+*   **Real-Time API Integration:** StadiaPulse layers its cognitive engine over a high-throughput event mesh. It ingests streams from stadium IoT (turnstile counts, HVAC telemetry), CCTV computer vision (crowd density heatmaps), and ticketing databases. The LLM acts as a reasoning engine over these APIs, converting raw telemetry into actionable, natural language insights and automated workflows.
+
+### 3. User Personas & Core Features
+*   **For Fans:** A dynamic, multimodal Copilot accessible via native apps and WhatsApp. It provides hyper-localized, step-by-step AR navigation to seats, restrooms with the shortest queues, and in-seat food delivery. It supports real-time multilingual voice and text support, adjusting tone and context to cultural nuances.
+*   **For Venue Staff & Organizers:** "OpsGPT" acts as a secure, conversational command center interface. Staff can ask, "Where is the largest crowd forming?" and OpsGPT synthesizes CCTV density data to pinpoint the location, concurrently generating a proactive mitigation strategy. In emergencies, querying "Generate a safe evacuation plan for Gate B due to heavy rain" triggers instantaneous, RAG-backed protocols integrated with real-time weather APIs.
+*   **For Volunteers:** Wearable AI audio translators offering real-time, bi-directional translation to assist international fans without breaking eye contact. Volunteers can also use voice commands to instantly retrieve situational protocols, such as lost-child procedures or medical dispatch coordinates.
+
+### 4. Edge Cases & Resilience Strategy
+The primary technical hurdle is network degradation caused by 80,000+ fans simultaneously taxing local infrastructure. StadiaPulse mitigates this through a robust Edge AI and federated resilience strategy.
+*   **Edge Inference & Offline Capabilities:** Core navigational, translation, and emergency rule-sets are cached locally on user devices and volunteer wearables. Quantized SLMs (Small Language Models) handle baseline interactions entirely offline, ensuring critical functionality never drops.
+*   **Mesh Networking:** We utilize peer-to-peer mesh networking protocols to propagate critical text-based alerts and crowd-density updates between devices when cellular networks fail.
+*   **Privacy & Compliance:** Operating across the US, Canada, and Mexico requires dynamic compliance (GDPR equivalents, CCPA, PIPEDA). Our models utilize strict data minimization, performing on-device PII redaction before any query hits the cloud. Ephemeral processing ensures all transient fan interaction data is purged immediately post-match.
+
+### 5. Sustainability & Impact Matrix
+StadiaPulse GenAI is instrumental in achieving a carbon-neutral tournament footprint.
+*   **Energy Optimization:** By continuously analyzing predictive crowd density, the AI dynamically modulates stadium HVAC, lighting, and water pressure zone-by-zone, reducing ambient energy waste by an estimated 28%.
+*   **Transit Integration:** The GenAI interfaces with municipal transit APIs across 16 cities, incentivizing fans with personalized, carbon-optimized routing suggestions and predictive dispatching for electric shuttle fleets.
+*   **Accessibility & ROI:** The system projects a 40% reduction in incident response times. Multimodal accessibility features—translating visual crowd data into spatial audio cues for the visually impaired, and real-time haptic/text alerts for the hearing impaired—ensure a radically inclusive experience while optimizing overall tournament efficiency.
+`;
